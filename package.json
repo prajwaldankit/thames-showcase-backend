@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Backend for Thames Hackathon showcase.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "node --watch index.js",
     "start": "node index.js"
@@ -14,5 +15,8 @@
     "MERN"
   ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }

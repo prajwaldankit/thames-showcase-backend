@@ -1,14 +1,18 @@
-const http = require("node:http")
+import express from "express"
+import router from "./projectRoutes.js"
 
-const hostname = "127.0.0.1";
-const port = 3000;
+const app = express()
 
-const server = http.createServer((req, res) => {
-	res.statusCode = 200;
-	res.setHeader("Content-Type", "text/plain");
-	res.end("Hello, World!\n");
-});
+app.use(express.json())
 
-server.listen(port, hostname, () => {
-	console.log(`server running at http://${hostname}:${port}/`);
-});
+const PORT = 3000
+app.get("/", (req, res) => {
+	res.send("Hello world")
+})
+
+app.use("/projects", router)
+
+
+app.listen(PORT, () => {
+	console.log("OUr server has started")
+})
