@@ -8,6 +8,7 @@
     "dev": "node --watch-path=./src src/index.js",
     "start": "node src/index.js"
   },
+
   "keywords": [
     "node",
     "express",
@@ -17,6 +18,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.1.0"
+    "dotenv": "^17.0.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.16.1"
   }
 }

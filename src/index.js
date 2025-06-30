@@ -1,19 +1,23 @@
-import express from "express"
-import projectRoutes from "./routes/projects.js"
-import teamRoutes from "./routes/teams.js"
+import express from "express";
 
-const app = express()
+import projectRoutes from "./routes/projects.js";
+import teamRoutes from "./routes/teams.js";
+import connectDB from "./config/db.js";
+import env from "./config/env.js"
 
-app.use(express.json())
+const app = express();
 
-const PORT = 3000
-app.get("/", (req, res) => {
-	res.send("Hello world123")
-})
+const PORT = env.PORT || 3000;
 
-app.use("/projects", projectRoutes)
-app.use("/teams", teamRoutes)
+app.use(express.json());
+
+// Connect to DB
+connectDB();
+
+// Routes
+app.use("/projects", projectRoutes);
+app.use("/teams", teamRoutes);
 
 app.listen(PORT, () => {
-	console.log("OUr server has started")
-})
+	console.log(`Server running on port ${PORT}`);
+});

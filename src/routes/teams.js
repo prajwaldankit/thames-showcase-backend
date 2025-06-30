@@ -1,21 +1,13 @@
 
-import { Router } from "express"
+import express from "express";
+import {
+	createTeam,
+	getAllTeams,
+} from "../controller/teams.js";
 
-const teamRoutes = Router()
+const router = express.Router();
 
-teamRoutes.get("/", (req, res) => {
-	res.send("THis is a list of teams")
-})
+router.post("/", createTeam);
+router.get("/", getAllTeams);
 
-teamRoutes.post("/", (req, res) => {
-	const reqData = req.body;
-	res.json({
-		...reqData, message: "Team has been created"
-	})
-})
-
-teamRoutes.get("/:id", (req, res) => {
-	res.send("THis is a team details page")
-})
-
-export default teamRoutes
+export default router;
