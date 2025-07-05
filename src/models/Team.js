@@ -5,8 +5,14 @@ const teamSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	imgUrl: String,
-	members: String
+	imgUrl: {
+		type: String,
+		required: true
+	},
+	members: {
+		type: String,
+		required: true
+	}
 });
 
 const Team = mongoose.model("Team", teamSchema);
