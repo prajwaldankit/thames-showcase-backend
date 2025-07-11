@@ -6,11 +6,12 @@ import {
 	getProjectById,
 	updateProject,
 } from "../controller/projects.js";
+import { validateLogin } from "../middlewares/auth.js";
 
 const router = express.Router();
 
 router.post("/", createProject);
-router.get("/", getAllProjects);
+router.get("/", validateLogin, getAllProjects);
 router.get('/:id', getProjectById);
 router.put('/:id', updateProject);
 router.delete('/:id', deleteProject);

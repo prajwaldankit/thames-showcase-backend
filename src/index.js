@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 
+import authRoutes from "./routes/auth.js";
 import projectRoutes from "./routes/projects.js";
 import teamRoutes from "./routes/teams.js";
 import connectDB from "./config/db.js";
@@ -17,6 +18,7 @@ app.use(express.json());
 
 app.use("/projects", projectRoutes);
 app.use("/teams", teamRoutes);
+app.use("/auth", authRoutes);
 
 const PORT = env.PORT || 3000;
 
